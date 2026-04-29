@@ -1,0 +1,194 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+import { translations } from '../../i18n';
+
+// Change to 'pt' when copying to the Portuguese folder
+const lang = 'pt'; 
+const t = translations[lang as keyof typeof translations];
+
+// --- 1. PHOTOS DATA (50 items) ---
+// Just keep adding your image paths to this list!
+const photos = [
+  '/images/gallery/photo-1.jpg',
+  '/images/gallery/photo-2.jpg',
+  '/images/gallery/photo-3.jpg',
+  '/images/gallery/photo-4.jpg',
+  '/images/gallery/photo-5.jpg',
+  '/images/gallery/photo-6.jpg',
+  // ... add up to 50 here
+];
+
+// --- 2. VIDEOS DATA (20 items) ---
+// Put your .mp4 files in the public/videos folder
+const videos = [
+  '/videos/video-1.mp4',
+  '/videos/video-2.mp4',
+  '/videos/video-3.mp4',
+  // ... add up to 20 here
+];
+
+// --- 3. YOUTUBE DATA (10 items) ---
+// Note: Use the YouTube "Embed" link, not the standard watch link!
+// E.g., https://www.youtube.com/embed/VIDEO_ID
+const youtubeLinks = [
+  'https://www.youtube.com/embed/dQw4w9WgXcQ',
+  'https://www.youtube.com/embed/dQw4w9WgXcQ',
+  'https://www.youtube.com/embed/dQw4w9WgXcQ',
+  // ... add up to 10 here
+];
+---
+
+<MainLayout title={t.gallery} lang={lang}>
+  
+  <section class="gallery-intro">
+    <h2 class="section-title-small" style="text-align: center; margin-top: 60px;">
+      {t.gallery_page_title}
+    </h2>
+    <p style="text-align: center; max-width: 700px; margin: 20px auto 60px; font-size: 1.1rem; color: #555;">
+      {t.gallery_page_intro}
+    </p>
+  </section>
+
+  <section class="gallery-section">
+    <div class="section-header">
+      <h3>{t.photos_title}</h3>
+      <div class="yellow-divider"></div>
+    </div>
+    
+    <div class="photo-grid">
+      {photos.map((photo) => (
+        <div class="media-card">
+          <img src={photo} alt="Filhos de Mãe Luiza Gallery Photo" loading="lazy" onerror="this.style.display='none'" />
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="gallery-section">
+    <div class="section-header">
+      <h3>{t.videos_title}</h3>
+      <div class="yellow-divider"></div>
+    </div>
+    
+    <div class="video-grid">
+      {videos.map((video) => (
+        <div class="media-card">
+          <video controls preload="none" poster="/images/video-placeholder.jpg">
+            <source src={video} type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="gallery-section" style="margin-bottom: 100px;">
+    <div class="section-header">
+      <h3>{t.youtube_title}</h3>
+      <div class="yellow-divider"></div>
+    </div>
+    
+    <div class="youtube-grid">
+      {youtubeLinks.map((link) => (
+        <div class="media-card youtube-card">
+          <iframe 
+            src={link} 
+            title="YouTube video player" 
+            frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            allowfullscreen
+            loading="lazy">
+          </iframe>
+        </div>
+      ))}
+    </div>
+  </section>
+
+</MainLayout>
+
+<style>
+  .gallery-section {
+    max-width: 1400px;
+    margin: 0 auto 80px;
+    padding: 0 20px;
+  }
+
+  .section-header {
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .section-header h3 {
+    color: var(--navy);
+    font-size: 2rem;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .yellow-divider {
+    width: 60px;
+    height: 4px;
+    background-color: var(--yellow);
+  }
+
+  /* Shared Media Card Styles */
+  .media-card {
+    background: #eaeaea;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    /* Aspect ratio for standard images/videos */
+    aspect-ratio: 4 / 3; 
+  }
+
+  .media-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0, 43, 92, 0.15);
+  }
+
+  .media-card img, 
+  .media-card video, 
+  .media-card iframe {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border: none;
+  }
+
+  /* Photos Grid (Dense layout for 50 images) */
+  .photo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 15px;
+  }
+
+  /* Local Videos Grid (Slightly larger cards for 20 videos) */
+  .video-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+  }
+
+  /* YouTube Grid (16:9 aspect ratio for 10 videos) */
+  .youtube-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 25px;
+  }
+
+  .youtube-card {
+    aspect-ratio: 16 / 9; /* Standard YouTube format */
+  }
+
+  @media (max-width: 600px) {
+    .photo-grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
+    .video-grid { grid-template-columns: 1fr; }
+    .youtube-grid { grid-template-columns: 1fr; }
+  }
+</style>

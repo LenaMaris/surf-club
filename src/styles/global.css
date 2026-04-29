@@ -1,155 +1,484 @@
-/*
-  The CSS in this style tag is based off of Bear Blog's default CSS.
-  https://github.com/HermanMartinus/bearblog/blob/297026a877bc2ab2b3bdfbd6b9f7961c350917dd/templates/styles/blog/default.css
-  License MIT: https://github.com/HermanMartinus/bearblog/blob/master/LICENSE.md
- */
+/* src/styles/global.css */
 
+html {
+  scroll-behavior: smooth;
+}
+
+/* 1. Define your Logo Colors */
 :root {
-	--accent: #2337ff;
-	--accent-dark: #000d8a;
-	--black: 15, 18, 25;
-	--gray: 96, 115, 159;
-	--gray-light: 229, 233, 240;
-	--gray-dark: 34, 41, 57;
-	--gray-gradient: rgba(var(--gray-light), 50%), #fff;
-	--box-shadow:
-		0 2px 6px rgba(var(--gray), 25%), 0 8px 24px rgba(var(--gray), 33%), 0 16px 32px
-		rgba(var(--gray), 33%);
-}
-@font-face {
-	font-family: "Atkinson";
-	src: url("/fonts/atkinson-regular.woff") format("woff");
-	font-weight: 400;
-	font-style: normal;
-	font-display: swap;
-}
-@font-face {
-	font-family: "Atkinson";
-	src: url("/fonts/atkinson-bold.woff") format("woff");
-	font-weight: 700;
-	font-style: normal;
-	font-display: swap;
-}
-body {
-	font-family: "Atkinson", sans-serif;
-	margin: 0;
-	padding: 0;
-	text-align: left;
-	background: linear-gradient(var(--gray-gradient)) no-repeat;
-	background-size: 100% 600px;
-	word-wrap: break-word;
-	overflow-wrap: break-word;
-	color: rgb(var(--gray-dark));
-	font-size: 20px;
-	line-height: 1.7;
-}
-main {
-	width: 720px;
-	max-width: calc(100% - 2em);
-	margin: auto;
-	padding: 3em 1em;
-}
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-	margin: 0 0 0.5rem 0;
-	color: rgb(var(--black));
-	line-height: 1.2;
-}
-h1 {
-	font-size: 3.052em;
-}
-h2 {
-	font-size: 2.441em;
-}
-h3 {
-	font-size: 1.953em;
-}
-h4 {
-	font-size: 1.563em;
-}
-h5 {
-	font-size: 1.25em;
-}
-strong,
-b {
-	font-weight: 700;
-}
-a {
-	color: var(--accent);
-}
-a:hover {
-	color: var(--accent);
-}
-p {
-	margin-bottom: 1em;
-}
-.prose p {
-	margin-bottom: 2em;
-}
-textarea {
-	width: 100%;
-	font-size: 16px;
-}
-input {
-	font-size: 16px;
-}
-table {
-	width: 100%;
-}
-img {
-	max-width: 100%;
-	height: auto;
-	border-radius: 8px;
-}
-code {
-	padding: 2px 5px;
-	background-color: rgb(var(--gray-light));
-	border-radius: 2px;
-}
-pre {
-	padding: 1.5em;
-	border-radius: 8px;
-}
-pre > code {
-	all: unset;
-}
-blockquote {
-	border-left: 4px solid var(--accent);
-	padding: 0 0 0 20px;
-	margin: 0;
-	font-size: 1.333em;
-}
-hr {
-	border: none;
-	border-top: 1px solid rgb(var(--gray-light));
-}
-@media (max-width: 720px) {
-	body {
-		font-size: 18px;
-	}
-	main {
-		padding: 1em;
-	}
+  --navy: #002b5c; 
+  --cyan: #00a8e8; 
+  --yellow: #ffcc00; 
+  --bg-color: #ffffff; 
+  --text-color: #333333;
 }
 
-.sr-only {
-	border: 0;
-	padding: 0;
-	margin: 0;
-	position: absolute !important;
-	height: 1px;
-	width: 1px;
-	overflow: hidden;
-	/* IE6, IE7 - a 0 height clip, off to the bottom right of the visible 1px box */
-	clip: rect(1px 1px 1px 1px);
-	/* maybe deprecated but we need to support legacy browsers */
-	clip: rect(1px, 1px, 1px, 1px);
-	/* modern browsers, clip-path works inwards from each corner */
-	clip-path: inset(50%);
-	/* added line to stop words getting smushed together (as they go onto separate lines and some screen readers do not understand line feeds as a space */
-	white-space: nowrap;
+/* 2. Clean Browser Reset */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; 
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  line-height: 1.6;
+  padding: 0 40px; 
+}
+
+/* 3. Typography */
+h1, h2, h3 {
+  color: var(--navy);
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  margin-bottom: 1rem;
+}
+
+/* --- FIXED CENTERED NAVIGATION --- */
+.main-nav {
+  display: flex;
+  justify-content: center; 
+  align-items: center;     
+  gap: 40px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  width: 100%;             
+  height: 50px;            
+}
+
+.main-nav a {
+  text-decoration: none;
+  color: var(--navy);
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  line-height: 1;          
+  display: flex;           
+  align-items: center;
+}
+
+.main-nav a:hover {
+  color: var(--cyan);
+}
+
+.main-nav a.active-page {
+  color: var(--cyan); /* Makes it pop with wave blue */
+  border-bottom: 3px solid var(--yellow); /* Adds a cool surfboard-yellow underline */
+  padding-bottom: 5px;
+  pointer-events: none;
+}
+
+/* ---- TOP PART ----*/
+.top-header {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr; 
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid #eaeaea;
+  gap: 20px; 
+}
+
+.header-left {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.header-center {
+  display: flex;
+  justify-content: center;
+}
+
+.header-right {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.mini-logo-img {
+  height: 50px;
+  width: auto;
+  min-width: 100px; 
+}
+
+.tagline {
+  color: var(--yellow);         
+  text-transform: uppercase;   
+  font-weight: 500;             
+  font-size: 0.7rem;            
+  letter-spacing: 1.5px;        
+  white-space: nowrap;          
+}
+
+@media (max-width: 800px) {
+  .header-left {
+    display: none;
+  }
+  .top-header {
+    grid-template-columns: 1fr 1fr; 
+  }
+}
+
+/* --- UNIFIED ACTION BAR --- */
+.action-bar {
+  display: flex;
+  align-items: center;
+  gap: 15px; 
+}
+
+.action-bar a {
+  text-decoration: none;
+  color: var(--navy);
+  font-size: 0.70rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: color 0.2s ease;
+  white-space: nowrap; 
+}
+
+.action-bar a:hover {
+  color: var(--cyan);
+}
+
+.separator {
+  width: 1px;
+  height: 14px; 
+  background-color: #ffcc00; 
+}
+
+/* --- FOOTER FINAL ADJUSTMENTS --- */
+.home-footer {
+  margin-top: 80px;
+  background-color: rgba(14, 34, 60, 0.95); 
+  padding: 40px 90px;
+  border-radius: 15px;
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
+  color: white;
+}
+
+.footer-header {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.footer-header h3 {
+  color: white !important; 
+  text-transform: uppercase;
+  font-size: 2rem; 
+  letter-spacing: 6px;
+  font-weight: 800;
+  margin: 0 auto;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr; 
+  gap: 20px;
+  align-items: start;
+  width: 100%;
+}
+
+.footer-item {
+  margin-bottom: 50px; 
+}
+
+.footer-column {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.footer-column .footer-item:last-child {
+  margin-bottom: 0;
+}
+
+.left-column {
+  text-align: left;
+  align-items: flex-start;
+}
+
+.middle-column {
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+
+.right-column {
+  text-align: right;
+  align-items: flex-end;
+}
+
+.info-text {
+  color: white !important;
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+  line-height: 1.6;
+  word-break: break-word; 
+  max-width: 100%;
+}
+
+.social-icons-row {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 10px;
+}
+
+.social-icons-row a { color: white; transition: color 0.3s; }
+.social-icons-row a:hover { color: var(--cyan); }
+
+@media (max-width: 950px) {
+  .footer-grid {
+    grid-template-columns: 1fr; 
+    gap: 50px;
+  }
+  .left-column, .middle-column, .right-column {
+    text-align: center;
+    align-items: center;
+  }
+  .map-card {
+    margin-left: auto;
+    margin-right: auto; 
+  }
+}
+
+.label {
+  display: block;
+  color: var(--yellow);
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  margin-bottom: 8px;
+}
+
+.map-card {
+  background: white;
+  padding: 8px;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 320px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+.map-card-footer { padding: 10px 5px 5px; text-align: left; }
+.map-card-footer a { color: var(--cyan); font-size: 0.7rem; font-weight: 800; text-decoration: none; }
+
+.tiny-footer-outside {
+  width: 100%;
+  text-align: center !important;
+  padding: 50px 0;
+  font-size: 0.75rem;
+  color: #666;
+  letter-spacing: 1.5px;
+  display: block;
+}
+
+/* --- UPDATED INTRO SECTION --- */
+.intro-section {
+  max-width: 1000px; 
+  margin: 0 auto 100px;
+  padding: 0 40px;
+  text-align: center;
+}
+
+
+.intro-body-single {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.intro-body-single p {
+  font-size: 1.1rem;
+  color: #444;
+  line-height: 1.8;
+  margin: 0;
+  text-align: justify;    
+  hyphens: auto;
+}
+
+@media (max-width: 600px) {
+  .intro-body-single p {
+    text-align: left; 
+  }
+}
+
+/* --- HORIZONTAL SCHEDULE TABLE --- */
+.table-scroll-wrapper {
+  width: 100%;
+  overflow-x: auto; 
+  background-color: white;
+  border-radius: 15px; 
+  box-shadow: 0 20px 40px rgba(0, 43, 92, 0.1);
+  margin-top: 40px;
+}
+
+.schedule-table-horizontal {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 900px; 
+}
+
+.vertical-header {
+  background-color: var(--navy);
+  color: white !important;
+  padding: 25px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-align: left;
+  width: 150px; 
+  position: sticky;
+  left: 0; 
+  z-index: 2;
+}
+
+.schedule-table-horizontal td {
+  padding: 20px;
+  text-align: center;
+  border: 1px solid #f0f0f0;
+  font-size: 0.95rem;
+  color: #444;
+}
+
+.day-cell {
+  background-color: #f9f9fb;
+  font-weight: 700;
+  color: var(--navy) !important;
+  text-transform: capitalize;
+}
+
+.time-cell {
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 600;
+}
+
+.activity-cell {
+  color: var(--cyan) !important;
+  font-weight: 700;
+}
+
+.schedule-table-horizontal tr:nth-child(even) td {
+  background-color: #fcfcfc;
+}
+
+
+/* --- BIG HOMEPAGE LOGO --- */
+.hero-logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 40px auto 60px; /* Adds breathing room above and below */
+  width: 100%;
+}
+
+.hero-logo-big {
+  max-width: 500px; 
+  width: 100%;
+  height: auto;
+  margin-bottom: 20px; /* Adds breathing room between the surfer and the big text */
+}
+
+/* --- NEW HERO HEADER STYLES --- */
+.hero-logo-container {
+  display: flex;
+  flex-direction: column; /* Stacks the text above the image */
+  align-items: center;
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.hero-title {
+  color: var(--navy); 
+  font-size: 4rem;  
+  font-weight: 900;
+  text-transform: uppercase;
+  line-height: 1;
+  letter-spacing: -2px; 
+  margin-top: 0; /* Reset this to 0 since the image is above it now */
+  margin-bottom: 15px;
+}
+
+.hero-subtitle {
+  color: var(--cyan); /* Ties into the blue of the wave! */
+  font-size: 1.4rem;  
+  font-weight: 600;
+  letter-spacing: 1px;
+  margin-bottom: 0px; /* Gives more space before the surfer illustration */
+}
+
+/* --- BOLD SUMMARY STYLE --- */
+.about-summary {
+  font-weight: bold;  /* Makes it bold */
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+  color: var(--text-color);
+  text-align: justify;
+}
+
+
+/* --- GLOBAL TINY FOOTER --- */
+.global-tiny-footer {
+  width: 100%;
+  padding: 50px 20px;
+  margin-top: 40px;
+  border-top: 1px solid #eaeaea; /* Adds a clean line above it on non-home pages */
+  display: flex;
+  justify-content: center;
+}
+
+.tiny-footer-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 20px;
+}
+
+.tiny-footer-content p {
+  font-size: 0.75rem;
+  color: #666;
+  letter-spacing: 1.5px;
+  line-height: 1.8;
+  font-weight: 500;
+  margin: 0;
+}
+
+.tiny-social-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.tiny-social-section span {
+  font-size: 0.75rem;
+  color: var(--cyan);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.tiny-social-icons {
+  display: flex;
+  gap: 18px;
+}
+
+.tiny-social-icons a {
+  color: #999;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.tiny-social-icons a:hover {
+  color: var(--navy);
+  transform: translateY(-2px);
 }

@@ -1,0 +1,38 @@
+---
+// Go up TWO levels: out of 'pt', then out of 'pages' to reach 'src'
+import { translations } from "../../i18n";
+import '../../styles/global.css';
+import MainLayout from '../../layouts/MainLayout.astro';
+
+// Statically set the language since this is the /pt/ folder
+const lang = "pt";
+const t = translations[lang];
+---
+
+<MainLayout title="Home" lang={lang}>
+  
+  <section class="hero-logo-container">
+    <img src="/logo.PNG" alt="Filhos de Mãe Luiza Logo" class="hero-logo-big" />
+    <h1 class="hero-title">{t.hero_title}</h1>
+    <p class="hero-subtitle">{t.hero_subtitle}</p>
+  </section>
+
+  <section class="intro-section">
+    <div class="intro-body-single">
+      <p class="about-summary">{t.about_summary}</p>
+      <p>{t.about_p1}</p>
+    </div>
+  </section>
+
+  <section class="photo-grid-container">
+    <div class="photo-grid">
+      <div class="grid-item item-1"><img src="/photo-1.jpg" alt="Surf 1" /></div>
+      <div class="grid-item item-2"><img src="/photo-2.jpg" alt="Surf 2" /></div>
+      <div class="grid-item item-3"><img src="/photo-3.jpg" alt="Surf 3" /></div>
+      <div class="grid-item item-4"><img src="/photo-4.jpg" alt="Surf 4" /></div>
+      <div class="grid-item item-5"><img src="/photo-5.jpg" alt="Surf 5" /></div>
+      <div class="grid-item item-6"><img src="/photo-6.jpg" alt="Surf 6" /></div>
+      <div class="grid-item item-7"><img src="/photo-7.jpg" alt="Surf 7" /></div>
+    </div>
+  </section>
+</MainLayout>

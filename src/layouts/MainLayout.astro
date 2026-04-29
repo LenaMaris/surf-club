@@ -1,0 +1,142 @@
+---
+import { translations } from "../i18n";
+import '../styles/global.css';
+
+const { title, lang = "en" } = Astro.props;
+const base = `/${lang}`;
+
+// 🎯 The fix: explicitly telling Astro that 'lang' is a valid key
+const t = translations[lang as keyof typeof translations] || translations["en"];
+const currentPath = Astro.url.pathname;
+
+// 🎯 This fixed function ensures the PT/EN buttons always work 
+function getPath(newLang: string) {
+  if (currentPath.startsWith('/en') || currentPath.startsWith('/pt')) {
+    return currentPath.replace(/^\/(en|pt)/, `/${newLang}`);
+  }
+  return `/${newLang}/`;
+}
+
+// 🎯 This ensures the big footer shows up even if the URL is /pt or /pt/ 
+const normalizedPath = currentPath.endsWith('/') ? currentPath : `${currentPath}/`;
+const isHome = normalizedPath === '/pt/' || normalizedPath === '/en/' || normalizedPath === '/';
+---
+
+<html lang={lang}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+  </head>
+  <body>
+    <header class="top-header">
+      <div class="header-left">
+        <span class="tagline">FILHOS DE MÃE LUIZA</span>
+      </div>
+
+      <div class="header-center">
+        <a href={`${base}/`}>
+          <img src="/name-logo.PNG" alt="Logo" class="mini-logo-img" />
+        </a>
+      </div>
+
+      <div class="header-right">
+        <div class="action-bar">
+          <a href={`${base}/#contact-section`}>{t.contact}</a>
+          <span class="separator"></span>
+          <a href={`${base}/help-us`}>{t.donate}</a>
+          <span class="separator"></span>
+          <a href={getPath("en")}>EN 🇺🇸</a>
+          <span class="separator"></span>
+          <a href={getPath("pt")}>PT 🇧🇷</a>
+        </div>
+      </div>
+    </header>
+
+    <nav class="main-nav">
+      <a href={`${base}/`} class={normalizedPath === `${base}/` ? 'active-page' : ''}>{t.home}</a>
+      <a href={`${base}/team`} class={currentPath.includes('/team') ? 'active-page' : ''}>{t.team}</a>
+      <a href={`${base}/classes`} class={currentPath.includes('/classes') ? 'active-page' : ''}>{t.classes}</a>
+      <a href={`${base}/stories`} class={currentPath.includes('/stories') ? 'active-page' : ''}>{t.stories}</a>
+      <a href={`${base}/help-us`} class={currentPath.includes('/help-us') ? 'active-page' : ''}>{t.help_us}</a>
+      <a href={`${base}/gallery`} class={currentPath.includes('/gallery') ? 'active-page' : ''}>{t.gallery}</a>
+    </nav>
+
+    <main>
+      <slot />
+    </main>
+    
+    {
+      /* The BIG footer only shows on the Home page */
+      isHome && (
+        <footer id="contact-section" class="home-footer">
+          <div class="footer-header">
+            <h3>{t.contact}</h3>
+          </div>
+
+          <div class="footer-grid">
+            <div class="footer-column left-column">
+              <div class="footer-item">
+                <span class="label">{t.email_label}</span>
+                <a href="mailto:escoladesurffilhosdemaeluiza@gmail.com" class="info-text">escoladesurffilhosdemaeluiza@gmail.com</a>
+              </div>
+              <div class="footer-item" style="margin-top: 30px;">
+                <span class="label">{t.phone_label}</span>
+                <p class="info-text">+55 (84) 98821-5075</p>
+              </div>
+            </div>
+
+            <div class="footer-column middle-column">
+              <span class="label">{t.follow_us}</span>
+              <div class="social-icons-row">
+                <a href="https://instagram.com/filhosdemaeluiza" target="_blank">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                </a>
+                <a href="https://www.facebook.com/surffilhosdemaeluiza" target="_blank">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+                </a>
+              </div>
+            </div>
+
+            <div class="footer-column right-column">
+              <div class="footer-item">
+                <span class="label">{t.location_label}</span>
+                <p class="info-text">Rua Guanabara, 1233 — Mãe Luíza</p>
+                <p class="info-text">Natal - RN, 59014-106</p>
+              </div>
+              <div class="map-card">
+                <iframe 
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3969.347547076648!2d-35.1837418!3d-5.7922718!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7b2f60d85b37731f%3A0x85b1334ac02c9b1f!2sR.%20Guanabara%2C%201233%20-%20M%C3%A3e%20Lu%C3%ADza%2C%20Natal%20-%20RN%2C%2059014-106!5e0!3m2!1spt-BR!2sbr!4v1714010000000!5m2!1spt-BR!2sbr" 
+                  width="100%" height="130" style="border:0;" allowfullscreen="" loading="lazy">
+                </iframe>
+                <div class="map-card-footer">
+                  <a href="https://goo.gl/maps/7" target="_blank">{t.open_maps}</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </footer>
+      )
+    }
+
+    <div class="global-tiny-footer">
+      <div class="tiny-footer-content">
+        <p>© {new Date().getFullYear()} FILHOS DE MÃE LUIZA.<br/>
+        {t.footer_desc}</p>
+        
+        <div class="tiny-social-section">
+          <span>{t.follow_us}</span>
+          <div class="tiny-social-icons">
+            <a href="https://instagram.com/filhosdemaeluiza" target="_blank" rel="noopener noreferrer">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+            </a>
+            <a href="https://www.facebook.com/surffilhosdemaeluiza" target="_blank" rel="noopener noreferrer">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+</html>

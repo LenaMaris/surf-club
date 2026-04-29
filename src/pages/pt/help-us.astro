@@ -1,0 +1,224 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+import { translations } from '../../i18n';
+
+// Change to 'pt' when copying to the Portuguese folder
+const lang = 'pt'; 
+const t = translations[lang as keyof typeof translations];
+const base = `/${lang}`;
+---
+
+<MainLayout title={t.help_us} lang={lang}>
+  
+  <section class="help-intro">
+    <h2 class="section-title-small" style="text-align: center; margin-top: 60px;">
+      {t.help_us_page_title}
+    </h2>
+    <p style="text-align: center; font-size: 1.1rem; color: #555; line-height: 1.8; margin-top: 20px;">
+      {t.help_us_page_intro}
+    </p>
+  </section>
+
+  <div class="support-container">
+    
+    <div class="support-card">
+      <div class="support-img-wrapper">
+        <img src="/images/partner.jpg" alt={t.partner_title} class="support-img" onerror="this.style.display='none'" />
+      </div>
+      <div class="support-content">
+        <h3>{t.partner_title}</h3>
+        <div class="yellow-divider"></div>
+        <p>{t.partner_desc}</p>
+      </div>
+    </div>
+
+    <div class="support-card">
+      <div class="support-img-wrapper">
+        <img src="/images/donor.jpg" alt={t.donor_title} class="support-img" onerror="this.style.display='none'" />
+      </div>
+      <div class="support-content">
+        <h3>{t.donor_title}</h3>
+        <div class="yellow-divider"></div>
+        <p>{t.donor_desc}</p>
+        
+        <div class="donation-buttons">
+          <a href="#" class="btn-pix">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 8px;"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+            {t.btn_pix}
+          </a>
+          
+          <a href="#" class="btn-paypal">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 8px;"><path d="M7 11V7a5 5 0 0 1 10 0v4"></path><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect></svg>
+            {t.btn_paypal}
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div id="volunteer" class="support-card">
+      <div class="support-img-wrapper">
+        <img src="/images/volunteer.jpg" alt={t.volunteer_title} class="support-img" onerror="this.style.display='none'" />
+      </div>
+      <div class="support-content">
+        <h3>{t.volunteer_title}</h3>
+        <div class="yellow-divider"></div>
+        <p>{t.volunteer_desc}</p>
+        
+        <a href={`${base}/#contact-section`} class="btn-contact">
+          {t.btn_contact_us}
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+</MainLayout>
+
+<style>
+  .help-intro {
+    max-width: 800px;
+    margin: 0 auto 40px;
+    padding: 0 20px;
+  }
+
+  .support-container {
+    max-width: 950px;
+    margin: 0 auto 100px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    padding: 0 20px;
+  }
+
+  .support-card {
+    display: flex;
+    background: white;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 15px 40px rgba(0, 43, 92, 0.08);
+    transition: transform 0.3s ease;
+    align-items: stretch; /* Stretches items to match height */
+    gap: 40px;
+  }
+
+  .support-card:hover {
+    transform: translateY(-5px);
+  }
+
+  /* NEW IMAGE WRAPPER STYLES */
+  .support-img-wrapper {
+    width: 280px; /* Fixed width for the picture */
+    min-height: 220px;
+    flex-shrink: 0; /* Prevents the image from being squished by text */
+    border-radius: 12px;
+    overflow: hidden;
+    background-color: #f4f7f9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .support-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures the photo fills the box perfectly without stretching */
+  }
+
+  .support-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centers the text vertically next to the picture */
+  }
+
+  .support-content h3 {
+    color: var(--navy);
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+  }
+
+  .yellow-divider {
+    width: 50px;
+    height: 4px;
+    background-color: var(--yellow);
+    margin-bottom: 20px;
+  }
+
+  .support-content p {
+    color: #555;
+    font-size: 1.05rem;
+    line-height: 1.7;
+    margin-bottom: 25px;
+  }
+
+  /* Buttons */
+  .donation-buttons {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+  }
+
+  .btn-pix, .btn-paypal, .btn-contact {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 12px 25px;
+    border-radius: 30px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+  }
+
+  .btn-pix {
+    background-color: #32bcad; 
+    color: white;
+  }
+  .btn-pix:hover { background-color: #279b8f; transform: scale(1.05); }
+
+  .btn-paypal {
+    background-color: var(--navy);
+    color: white;
+  }
+  .btn-paypal:hover { background-color: var(--cyan); transform: scale(1.05); }
+
+  .btn-contact {
+    background-color: var(--cyan);
+    color: white;
+    align-self: flex-start; 
+  }
+  .btn-contact:hover {
+    background-color: var(--navy);
+    transform: scale(1.05);
+  }
+
+  /* Mobile Responsiveness */
+  @media (max-width: 768px) {
+    .support-card {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 30px 20px;
+      gap: 25px;
+    }
+    
+    .support-img-wrapper {
+      width: 100%;
+      height: 250px;
+      min-height: auto;
+    }
+
+    .yellow-divider {
+      margin: 0 auto 20px;
+    }
+    .donation-buttons {
+      flex-direction: column;
+      width: 100%;
+    }
+    .btn-contact {
+      align-self: stretch;
+    }
+  }
+</style>

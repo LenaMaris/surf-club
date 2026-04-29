@@ -1,0 +1,260 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+import { translations } from '../../i18n';
+
+// Change to 'pt' when you copy this to the Portuguese folder
+const lang = 'pt'; 
+const t = translations[lang as keyof typeof translations];
+
+// --- SUCCESS STORIES DATA ---
+const successStories = [
+  {
+    name: t.success1_name,
+    image: '/images/success-1.jpg',
+    description: t.success1_desc
+  },
+  {
+    name: t.success2_name,
+    image: '/images/success-2.jpg',
+    description: t.success2_desc
+  },
+  {
+    name: t.success3_name,
+    image: '/images/success-2.jpg',
+    description: t.success3_desc
+  },
+  {
+    name: t.italo_title,
+    image: '/images/success-2.jpg',
+    description: t.italo_desc
+  }
+];
+
+// --- NEWS ARTICLES DATA ---
+// --- NEWS ARTICLES DATA ---
+const newsArticles = [
+  {
+    title: t.news1_title,
+    source: "G1 RN",
+    date: "Sep 2020",
+    link: "https://g1.globo.com/rn/rio-grande-do-norte/noticia/2020/09/04/acao-solidaria-distribui-mil-cestas-basicas-e-material-de-higiene-em-comunidades-de-natal-e-interior-do-rn.ghtml", 
+    image: '/images/news-1.jpg' // Remember to drop an image in your public/images folder
+  },
+  {
+    title: t.news2_title,
+    source: "UFRN Imprensa",
+    date: "2019",
+    link: "https://www.ufrn.br/imprensa/noticias/28868/ingles-aos-filhos-de-mae-luiza", 
+    image: '/images/news-2.jpg'
+  },
+  {
+    title: t.news3_title,
+    source: "Globo Esporte RN",
+    date: "Oct 2012",
+    link: "https://ge.globo.com/rn/noticia/2012/10/ha-10-anos-projeto-afasta-jovens-da-criminalidade-atraves-do-surfe.html", 
+    image: '/images/news-3.jpg'
+  }
+];
+---
+
+<MainLayout title={t.stories} lang={lang}>
+  
+  <section class="stories-intro">
+    <h2 class="section-title-small" style="text-align: center; margin-top: 60px;">
+      {t.stories_page_title}
+    </h2>
+    <div class="intro-content">
+      <p>{t.stories_intro}</p>
+    </div>
+  </section>
+
+  <section class="success-section">
+    <h2 class="section-title-small" style="text-align: center; margin-top: 80px; margin-bottom: 40px;">
+      {t.success_title}
+    </h2>
+    
+    <div class="success-container">
+      {successStories.map((story, index) => (
+        <div class={`success-card ${index % 2 !== 0 ? 'reverse-layout' : ''}`}>
+          <div class="success-img-wrapper">
+            <img src={story.image} alt={story.name} class="success-img" onerror="this.style.display='none'" />
+          </div>
+          <div class="success-content">
+            <h3>{story.name}</h3>
+            <div class="yellow-divider"></div>
+            <p>{story.description}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="news-section">
+    <h2 class="section-title-small" style="text-align: center; margin-top: 100px; margin-bottom: 40px;">
+      {t.news_title}
+    </h2>
+    
+    <div class="news-grid">
+      {newsArticles.map((article) => (
+        <a href={article.link} target="_blank" rel="noopener noreferrer" class="news-card">
+          <div class="news-img-wrapper">
+            <img src={article.image} alt={article.title} class="news-img" onerror="this.style.display='none'" />
+          </div>
+          <div class="news-content">
+            <div class="news-meta">
+              <span class="news-source">{article.source}</span>
+              <span class="news-date">{article.date}</span>
+            </div>
+            <h4>{article.title}</h4>
+            <span class="read-more">{t.read_article}</span>
+          </div>
+        </a>
+      ))}
+    </div>
+  </section>
+
+</MainLayout>
+
+<style>
+  /* Intro Section */
+  .stories-intro { max-width: 800px; margin: 0 auto; padding: 0 20px; }
+  .intro-content { display: flex; flex-direction: column; gap: 20px; margin-top: 30px; }
+  .intro-content p { font-size: 1.1rem; color: #444; line-height: 1.8; text-align: justify; }
+
+  /* Success Stories (Featured Layout) */
+  .success-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+    padding: 0 20px;
+  }
+
+  .success-card {
+    display: flex;
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 15px 40px rgba(0, 43, 92, 0.1);
+    align-items: center;
+  }
+
+  /* This swaps the image to the right side on every 2nd card! */
+  .success-card.reverse-layout {
+    flex-direction: row-reverse;
+  }
+
+  .success-img-wrapper {
+    flex: 1;
+    min-width: 300px;
+    height: 400px;
+    background-color: #eaeaea;
+  }
+
+  .success-img { width: 100%; height: 100%; object-fit: cover; }
+
+  .success-content {
+    flex: 1.5;
+    padding: 40px;
+  }
+
+  .success-content h3 {
+    color: var(--navy);
+    font-size: 2.2rem;
+    margin-bottom: 10px;
+  }
+
+  .yellow-divider {
+    width: 60px;
+    height: 4px;
+    background-color: var(--yellow);
+    margin-bottom: 20px;
+  }
+
+  .success-content p {
+    color: #555;
+    font-size: 1.05rem;
+    line-height: 1.7;
+  }
+
+  /* News Grid */
+  .news-section {
+    max-width: 1200px;
+    margin: 0 auto 100px;
+    padding: 0 20px;
+  }
+
+  .news-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+  }
+
+  .news-card {
+    display: flex;
+    flex-direction: column;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    text-decoration: none;
+    border: 1px solid #eaeaea;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .news-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 43, 92, 0.1);
+  }
+
+  .news-img-wrapper {
+    height: 200px;
+    background-color: #f5f5f5;
+  }
+
+  .news-img { width: 100%; height: 100%; object-fit: cover; }
+
+  .news-content {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+
+  .news-meta {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.8rem;
+    color: #888;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+
+  .news-source { color: var(--cyan); }
+
+  .news-content h4 {
+    color: var(--navy);
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    line-height: 1.4;
+  }
+
+  .read-more {
+    margin-top: auto;
+    color: var(--cyan);
+    font-size: 0.9rem;
+    font-weight: 800;
+  }
+
+  /* Mobile responsiveness for Success Cards */
+  @media (max-width: 800px) {
+    .success-card, .success-card.reverse-layout {
+      flex-direction: column;
+    }
+    .success-img-wrapper {
+      width: 100%;
+      height: 250px;
+    }
+  }
+</style>
