@@ -25,7 +25,7 @@ export const translations = {
       
       /* Home Page*/
       about_title: "Who We Are",
-      about_p1: "The Filhos de Mãe Luiza Project has existed for over eighteen years in the city of Natal, the capital of Rio Grande do Norte. This social project aims to offer new opportunities and training for the neighborhood's youth. Over these eighteen years, more than 5,000 children and adolescents have been served, providing the chance to form athletes and citizens. At the famous 'Miami Beach,' the project offers sports practices through surfing and bodyboarding. In addition to these activities, the project features a complementary education proposal with volunteer teaching of languages, school tutoring, ballet, and martial arts.",
+      about_p1: "The Filhos de Mãe Luiza Project is our home and safe haven here in Natal, going strong for over 24 years. It all started with 180 young people who were feeling lost and left behind, and today we've seen over 8,000 lives transformed. Surfing at Miami Beach is our root, but the project has grown far beyond the ocean. We're a true symbol of overcoming the odds: our kids have brought over 700 trophies and 500 medals back to the neighborhood. But it’s not just about sports; we believe education goes hand in hand. That's why our home offers school tutoring, ballet, jiu-jitsu, and even legal advice for families in our community.",
       hero_title: "Filhos de Mãe Luiza",
       hero_subtitle: "Non-governmental organization (NGO)",
       about_summary: "Project focused on social inclusion of children and adolescents in the Mãe Luiza neighborhood, East Zone of Natal, RN.",
@@ -54,9 +54,10 @@ export const translations = {
 
       /* Team Page */
       history_title: "Our History",
-      history_p1: "The Filhos de Mãe Luiza Project started with a simple dream: to use the ocean as a classroom. Over eighteen years ago, a small group of local surfers noticed that the kids in the neighborhood needed a safe, productive space after school.",
-      history_p2: "What began as a few borrowed surfboards at Miami Beach has grown into a massive community effort. Today, we don't just teach surfing; we offer martial arts, language classes, and school tutoring. We have served over 5,000 children, helping them become not just better athletes, but confident citizens ready to take on the world.",
-      
+      history_p1: "The Filhos de Mãe Luiza Project was born over 24 years ago with a dream that seemed impossible. Back then, we gathered about 180 youths who were disillusioned, had lost faith in life, and were forgotten by the schools. We used Miami Beach not just for surfing, but as a true open-air classroom. The goal was simple: to show them they had the potential to grow, teaching everything from basic life and citizenship skills to reclaiming their own pride.",
+      history_p2: "What started with a few borrowed surfboards turned into a safe haven for the community. Over these two decades, we realized that sports alone weren't enough; hunger and a lack of opportunities were real barriers. Because of this, the project embraced school tutoring, ballet, martial arts, and a daily fight against food insecurity. It is a tough battle, built on donations, sweat, and volunteer work, where we fight every day to demystify the negative image of the periphery and bring dignity to our youth.",
+      history_p3: "Today, we look back and see that every effort was worth it: we have welcomed over 8,000 children, adolescents, and adults. Our shelves hold more than 700 trophies and 500 medals won all over Brazil. But our true victory isn't the sports podium. Our greatest pride is seeing young people from our community graduating from college, becoming business owners, teachers, and upstanding citizens who have conquered a bright future.",
+
       team_grid_title: "Meet the Team",
       
       /* Team Members */
@@ -122,7 +123,10 @@ export const translations = {
       gallery_page_intro: "Experience the energy, joy, and dedication of the Filhos de Mãe Luiza project. From catching waves at Miami Beach to learning on the mats and in the classroom.",
       photos_title: "Photo Gallery",
       videos_title: "Video Gallery",
-      youtube_title: "Featured on YouTube"
+      youtube_title: "Featured on YouTube",
+
+      coming_soon_msg: "The donation system will be implemented soon. Thank you so much for your interest in supporting Filhos de Mãe Luiza!",
+      pix_copied_msg: "PIX Key (CNPJ) copied: 28.831.283/0001-32 \n\nPaste in your banking app to donate!"
 
     },
 
@@ -153,7 +157,7 @@ export const translations = {
       
       /* Home Page */
       about_title: "Quem Somos",
-      about_p1: "O Projeto Filhos de Mãe Luiza existe há mais de dezoito anos na cidade do Natal, capital do Estado do Rio Grande do Norte. O projeto social visa oferecer novas oportunidades e formações para os jovens do bairro. Ao longo desses dezoito anos de existência do projeto mais de 5.000 mil crianças e adolescentes foram atendidas trazendo a oportunidade de formar atletas e cidadãos. Na conhecida “praia de Miami” o projeto oferece práticas esportivas por meio das modalidades de surf e bodyboarding. Além dessas atividades que acontecem no “quintal de casa”, o projeto conta com uma proposta de educação complementar com ensinos voluntários de idiomas, reforço escolar, ballet e artes marciais.",
+      about_p1: "O Projeto Filhos de Mãe Luiza é a nossa casa e o nosso porto seguro aqui em Natal, na ativa há mais de 24 anos. Tudo começou com 180 jovens que estavam meio perdidos, sem perspectiva, e hoje já vimos mais de 8.000 vidas serem transformadas. O surf na Praia de Miami é a nossa raiz, mas o projeto cresceu muito além do mar. Somos um verdadeiro símbolo de superação: nossa garotada já trouxe mais de 700 troféus e 500 medalhas para o bairro. E não é só esporte; a gente acredita que a educação anda junto. Por isso, a nossa casa oferece reforço escolar, ballet, jiu-jitsu e até atendimento jurídico para as famílias da nossa comunidade.",
       hero_title: "Filhos de Mãe Luiza",
       hero_subtitle: "Organização não governamental (ONG)",
       about_summary: "Projeto voltado a inclusão social de crianças e adolescentes no Bairro Mãe Luiza, Zona Leste de Natal, RN.",
@@ -179,15 +183,18 @@ export const translations = {
       tutoring_math: "Reforço Escolar (Matemática)",
       tutoring_portuguese: "Reforço Escolar (Português)",
       tutoring: "Reforço Escolar",
-      legal_advice: "Assessoria Jurídica",
+      legal_advice: "Atendimento Jurídico",
 
       about_classes_title: "Sobre Nossas Aulas",
       professors_label: "Professores:",
 
+
+
       /* Team Page */
       history_title: "Nossa História",
-      history_p1: "O Projeto Filhos de Mãe Luiza começou com um sonho simples: usar o oceano como sala de aula. Há mais de dezoito anos, um pequeno grupo de surfistas locais percebeu que as crianças do bairro precisavam de um espaço seguro e produtivo depois da escola.",
-      history_p2: "O que começou com algumas pranchas emprestadas na Praia de Miami se transformou em um enorme esforço comunitário. Hoje, não ensinamos apenas surf; oferecemos artes marciais, aulas de idiomas e reforço escolar. Já atendemos mais de 5.000 crianças, ajudando-as a se tornarem não apenas atletas melhores, mas cidadãos confiantes e prontos para enfrentar o mundo.",
+      history_p1: "O Projeto Filhos de Mãe Luiza nasceu há mais de 24 anos com um sonho que parecia impossível. Naquela época, reunimos cerca de 180 jovens que estavam desiludidos, desacreditados da vida e esquecidos pelas escolas. Nós usamos a Praia de Miami não apenas para surfar, mas como uma verdadeira sala de aula a céu aberto. O objetivo era simples: mostrar a eles que tinham o potencial de crescer, ensinando desde habilidades básicas de convivência e cidadania até o resgate do próprio orgulho.",
+      history_p2: "O que começou com algumas pranchas emprestadas virou um porto seguro para a comunidade. Ao longo dessas duas décadas, percebemos que só o esporte não bastava; a fome e a falta de oportunidades eram barreiras reais. Por isso, o projeto abraçou o reforço escolar, o ballet, as artes marciais e o combate diário à insegurança alimentar. É uma luta dura, feita de doações, suor e trabalho voluntário, onde brigamos todos os dias para desmistificar a imagem negativa da periferia e dar dignidade aos nossos jovens.",
+      history_p3: "Hoje, olhamos para trás e vemos que cada esforço valeu a pena: já acolhemos mais de 8.000 crianças, adolescentes e adultos. Nossa estante guarda mais de 700 troféus e 500 medalhas conquistadas pelo Brasil afora. Mas a nossa verdadeira vitória não é o pódio esportivo. O nosso maior orgulho é ver jovens da nossa comunidade se formando na faculdade, tornando-se empresários, professores e cidadãos de bem que conquistaram um futuro brilhante.",
       
       team_grid_title: "Conheça a Equipe",
 
@@ -255,7 +262,10 @@ export const translations = {
       gallery_page_intro: "Sinta a energia, a alegria e a dedicação do projeto Filhos de Mãe Luiza. Desde pegar ondas na Praia de Miami até o aprendizado nos tatames e na sala de aula.",
       photos_title: "Galeria de Fotos",
       videos_title: "Galeria de Vídeos",
-      youtube_title: "Destaques no YouTube"
+      youtube_title: "Destaques no YouTube",
+
+      coming_soon_msg: "O sistema de doações será implementado em breve. Muito obrigado pelo seu interesse em apoiar os Filhos de Mãe Luiza!",
+      pix_copied_msg: "Chave PIX (CNPJ) copiada: 28.831.283/0001-32 \n\nCole no aplicativo do seu banco para doar!"
 
     }
   };

@@ -6,8 +6,7 @@ import { translations } from '../../i18n';
 const lang = 'pt'; 
 const t = translations[lang as keyof typeof translations];
 
-// --- 1. PHOTOS DATA (50 items) ---
-// Just keep adding your image paths to this list!
+/// --- 1. PHOTOS DATA ---
 const photos = [
   '/images/gallery/photo-1.jpg',
   '/images/gallery/photo-2.jpg',
@@ -15,7 +14,40 @@ const photos = [
   '/images/gallery/photo-4.jpg',
   '/images/gallery/photo-5.jpg',
   '/images/gallery/photo-6.jpg',
-  // ... add up to 50 here
+  '/images/gallery/photo-7.jpg',
+  '/images/gallery/photo-8.jpg',
+  '/images/gallery/photo-9.jpg',
+  '/images/gallery/photo-10.jpg',
+  '/images/gallery/photo-11.jpg',
+  '/images/gallery/photo-12.jpg',
+  '/images/gallery/photo-13.jpg',
+  '/images/gallery/photo-14.jpg',
+  '/images/gallery/photo-15.jpg',
+  '/images/gallery/photo-16.jpg',
+  '/images/gallery/photo-17.jpg',
+  '/images/gallery/photo-18.jpg',
+  '/images/gallery/photo-19.jpg',
+  '/images/gallery/photo-20.jpg',
+  '/images/gallery/photo-21.jpg',
+  '/images/gallery/photo-22.jpg',
+  '/images/gallery/photo-23.jpg',
+  '/images/gallery/photo-24.jpg',
+  '/images/gallery/photo-25.jpg',
+  '/images/gallery/photo-26.jpg',
+  '/images/gallery/photo-27.jpg',
+  '/images/gallery/photo-28.jpg',
+  '/images/gallery/photo-29.jpg',
+  '/images/gallery/photo-30.jpg',
+  '/images/gallery/photo-31.jpg',
+  '/images/gallery/photo-32.jpg',
+  '/images/gallery/photo-33.jpg',
+  '/images/gallery/photo-34.jpg',
+  '/images/gallery/photo-35.jpg',
+  '/images/gallery/photo-36.jpg',
+  '/images/gallery/photo-37.jpg',
+  '/images/gallery/photo-38.jpg',
+  '/images/gallery/photo-39.jpg'
+  
 ];
 
 // --- 2. VIDEOS DATA (20 items) ---
@@ -24,17 +56,24 @@ const videos = [
   '/videos/video-1.mp4',
   '/videos/video-2.mp4',
   '/videos/video-3.mp4',
-  // ... add up to 20 here
+  '/videos/video-4.mp4',
+  '/videos/video-5.mp4',
+  '/videos/video-6.mp4',
+  '/videos/video-7.mp4',
+  '/videos/video-8.mp4',
+  '/videos/video-9.mp4',
+  '/videos/video-10.mp4',
+  '/videos/video-11.mp4'
 ];
 
-// --- 3. YOUTUBE DATA (10 items) ---
-// Note: Use the YouTube "Embed" link, not the standard watch link!
-// E.g., https://www.youtube.com/embed/VIDEO_ID
+/// --- 3. YOUTUBE DATA ---
 const youtubeLinks = [
-  'https://www.youtube.com/embed/dQw4w9WgXcQ',
-  'https://www.youtube.com/embed/dQw4w9WgXcQ',
-  'https://www.youtube.com/embed/dQw4w9WgXcQ',
-  // ... add up to 10 here
+  'https://www.youtube.com/embed/c-yX-Dn94EQ',
+  'https://www.youtube.com/embed/fNTynIEyZPM',
+  'https://www.youtube.com/embed/xIb-UQeASoM',
+  'https://www.youtube.com/embed/n8qsXcu_D04',
+  'https://www.youtube.com/embed/qfnJY093ihE',
+  'https://www.youtube.com/embed/SULNxkMQYX0'
 ];
 ---
 
@@ -49,6 +88,7 @@ const youtubeLinks = [
     </p>
   </section>
 
+  <!-- PHOTOS SECTION -->
   <section class="gallery-section">
     <div class="section-header">
       <h3>{t.photos_title}</h3>
@@ -57,13 +97,14 @@ const youtubeLinks = [
     
     <div class="photo-grid">
       {photos.map((photo) => (
-        <div class="media-card">
-          <img src={photo} alt="Filhos de Mãe Luiza Gallery Photo" loading="lazy" onerror="this.style.display='none'" />
+        <div class="media-card photo-card">
+          <img src={photo} alt="Filhos de Mãe Luiza Gallery Photo" loading="lazy" />
         </div>
       ))}
     </div>
   </section>
 
+  <!-- LOCAL VIDEOS SECTION -->
   <section class="gallery-section">
     <div class="section-header">
       <h3>{t.videos_title}</h3>
@@ -71,17 +112,24 @@ const youtubeLinks = [
     </div>
     
     <div class="video-grid">
-      {videos.map((video) => (
-        <div class="media-card">
-          <video controls preload="none" poster="/images/video-placeholder.jpg">
-            <source src={video} type="video/mp4" />
-            Your browser does not support the video tag.
-          </video>
-        </div>
-      ))}
+      {videos.map((video) => {
+        // This logic takes "/videos/video-1.mp4" 
+        // and turns it into "/videos/screen-1.jpg" automatically
+        const posterPath = video.replace('video-', 'screen-').replace('.mp4', '.jpg');
+
+        return (
+          <div class="media-card video-card">
+            <video controls preload="none" poster={posterPath}>
+              <source src={video} type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        );
+      })}
     </div>
   </section>
 
+  <!-- YOUTUBE SECTION -->
   <section class="gallery-section" style="margin-bottom: 100px;">
     <div class="section-header">
       <h3>{t.youtube_title}</h3>
@@ -92,13 +140,13 @@ const youtubeLinks = [
       {youtubeLinks.map((link) => (
         <div class="media-card youtube-card">
           <iframe 
-            src={link} 
-            title="YouTube video player" 
-            frameborder="0" 
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-            allowfullscreen
-            loading="lazy">
-          </iframe>
+          src={link} 
+          title="YouTube video player" 
+          frameborder="0" 
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+          allowfullscreen
+          loading="lazy"
+        ></iframe>
         </div>
       ))}
     </div>
@@ -118,7 +166,6 @@ const youtubeLinks = [
     display: flex;
     flex-direction: column;
     align-items: center;
-    text-align: center;
   }
 
   .section-header h3 {
@@ -135,60 +182,78 @@ const youtubeLinks = [
     background-color: var(--yellow);
   }
 
-  /* Shared Media Card Styles */
+  /* Improved Media Card */
   .media-card {
     background: #eaeaea;
-    border-radius: 12px;
+    border-radius: 15px;
     overflow: hidden;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 10px 25px rgba(0, 43, 92, 0.1);
+    transition: all 0.3s ease;
     position: relative;
-    /* Aspect ratio for standard images/videos */
-    aspect-ratio: 4 / 3; 
   }
 
   .media-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 12px 30px rgba(0, 43, 92, 0.15);
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(0, 43, 92, 0.2);
   }
 
-  .media-card img, 
-  .media-card video, 
-  .media-card iframe {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border: none;
-  }
-
-  /* Photos Grid (Dense layout for 50 images) */
+  /* Photo Grid - Modern Masonry-like feel */
   .photo-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 15px;
-  }
-
-  /* Local Videos Grid (Slightly larger cards for 20 videos) */
-  .video-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    grid-auto-rows: 300px;
     gap: 20px;
   }
 
-  /* YouTube Grid (16:9 aspect ratio for 10 videos) */
+  .photo-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  /* Video Grid - Wider cards for impact */
+  .video-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    gap: 30px;
+  }
+
+  .video-card {
+    aspect-ratio: 16 / 9; /* Cinematic ratio for videos */
+  }
+
+  .video-card video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* YouTube Grid */
   .youtube-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-    gap: 25px;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    gap: 30px;
   }
 
   .youtube-card {
-    aspect-ratio: 16 / 9; /* Standard YouTube format */
+    aspect-ratio: 16 / 9;
   }
 
-  @media (max-width: 600px) {
-    .photo-grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
-    .video-grid { grid-template-columns: 1fr; }
-    .youtube-grid { grid-template-columns: 1fr; }
+  .youtube-card iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+
+  /* Mobile Adjustments */
+  @media (max-width: 768px) {
+    .video-grid, .youtube-grid {
+      grid-template-columns: 1fr;
+    }
+    .photo-grid {
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      grid-auto-rows: 200px;
+    }
   }
 </style>

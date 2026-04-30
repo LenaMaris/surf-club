@@ -64,6 +64,7 @@ const teamMembers = [
     <div class="history-content">
       <p>{t.history_p1}</p>
       <p>{t.history_p2}</p>
+      <p>{t.history_p3}</p>
     </div>
   </section>
 
@@ -72,8 +73,25 @@ const teamMembers = [
       {t.team_grid_title}
     </h2>
     
+    <!-- THE FOUNDER (Wider, Centered Card) -->
+    <div class="founder-container">
+      <div class="team-card founder-card">
+        <div class="team-img-wrapper">
+          <!-- teamMembers[0] is Francisco -->
+          <img src={teamMembers[0].image} alt={teamMembers[0].name} class="team-img" onerror="this.style.display='none'" />
+        </div>
+        <div class="team-card-content">
+          <h3 class="member-name">{teamMembers[0].name}</h3>
+          <span class="member-role">{teamMembers[0].role}</span>
+          <p class="member-desc">{teamMembers[0].description}</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- THE REST OF THE TEAM (3x3 Grid) -->
     <div class="team-grid">
-      {teamMembers.map((member) => (
+      <!-- .slice(1) skips the first person (Francisco) and loops through the rest -->
+      {teamMembers.slice(1).map((member) => (
         <div class="team-card">
           <div class="team-img-wrapper">
             <img src={member.image} alt={member.name} class="team-img" onerror="this.style.display='none'" />
@@ -90,7 +108,6 @@ const teamMembers = [
 
   <section class="volunteer-cta">
     <h2>{t.cta_volunteer_title}</h2>
-    <p>{t.cta_volunteer_desc}</p>
     <a href={`${base}/help-us#volunteer`} class="cta-button">
       {t.cta_volunteer_btn}
     </a>
@@ -103,23 +120,128 @@ const teamMembers = [
   .history-content { display: flex; flex-direction: column; gap: 20px; margin-top: 30px; }
   .history-content p { font-size: 1.1rem; color: #444; line-height: 1.8; text-align: justify; }
 
+  //* --- FOUNDER CARD STYLES --- */
+  /* --- FOUNDER CARD STYLES --- */
+  .founder-container {
+    display: flex;
+    justify-content: center;
+    margin: 40px auto 50px auto;
+    padding: 0 20px;
+  }
+
+  .founder-card {
+    background: white; 
+    border-radius: 15px; 
+    overflow: hidden; 
+    box-shadow: 0 10px 30px rgba(0, 43, 92, 0.08); 
+    transition: transform 0.3s ease;
+    display: flex; 
+    flex-direction: row;
+    align-items: stretch;
+    
+    /* THE BULLETPROOF FIX: */
+    width: 100%;
+    max-width: 750px; /* Change this number to make the box wider or narrower! */
+    margin: 0 auto; /* Keeps it dead center */
+  }
+
+  .founder-card:hover { transform: translateY(-5px); }
+
+  .founder-card .team-img-wrapper {
+    flex: 0 0 40%; 
+    min-width: 250px; 
+    display: flex; /* Helps the image fill the container */
+  }
+
+  .founder-card .team-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    display: block; /* Removes default image spacing */
+  }
+
+  .founder-card .team-card-content {
+    flex: 1; 
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: left; /* Overrides center alignment */
+  }
+
+  .founder-card .member-desc {
+    text-align: justify; /* Makes the text stretch evenly to both edges of the box */
+  }
+
+
+  /* --- REST OF THE TEAM GRID STYLES --- */
   .team-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 40px; margin-top: 50px; margin-bottom: 80px;
-    max-width: 1200px; margin-left: auto; margin-right: auto;
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 40px; 
+    margin-bottom: 80px;
+    max-width: 1200px; 
+    margin-left: auto; 
+    margin-right: auto;
+    padding: 0 20px;
   }
-  .team-card { background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0, 43, 92, 0.08); transition: transform 0.3s ease; text-align: center; }
+
+  .team-card { 
+    background: white; 
+    border-radius: 15px; 
+    overflow: hidden; 
+    box-shadow: 0 10px 30px rgba(0, 43, 92, 0.08); 
+    transition: transform 0.3s ease; 
+    text-align: center; 
+    display: flex;
+    flex-direction: column;
+  }
+  
   .team-card:hover { transform: translateY(-5px); }
-  .team-img-wrapper { width: 100%; height: 300px; background-color: #eaeaea; display: flex; align-items: center; justify-content: center; }
+  
+  .team-img-wrapper { 
+    width: 100%; 
+    height: 300px; 
+    background-color: #eaeaea; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+  }
+  
   .team-img { width: 100%; height: 100%; object-fit: cover; }
-  .team-card-content { padding: 25px 20px; }
+  .team-card-content { padding: 25px 20px; flex-grow: 1; }
+
+  /* Shared Text Styles */
   .member-name { color: var(--navy); font-size: 1.4rem; margin-bottom: 5px; }
   .member-role { display: block; color: var(--cyan); font-size: 0.9rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 15px; }
   .member-desc { color: #555; font-size: 0.95rem; line-height: 1.6; }
 
+  /* --- MOBILE RESPONSIVENESS --- */
+  @media (max-width: 900px) {
+    /* Stack the founder card vertically on phones/tablets */
+    .founder-card {
+      flex-direction: column;
+      text-align: left; /* FIX: Keeps text aligned to the edges instead of centering! */
+    }
+    .founder-card .team-img-wrapper {
+      width: 100%;
+      height: 350px; /* Gives the image a nice solid height */
+      flex: none;
+    }
+    .founder-card .team-card-content {
+      width: 100%;
+      padding: 30px 25px;
+    }
+    
+    /* Allow the 3x3 grid to collapse */
+    .team-grid {
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+    }
+  }
+
+  /* --- VOLUNTEER CTA STYLES --- */
   .volunteer-cta {
-    /* Updated to match your beautiful footer color! */
     background-color: rgba(14, 34, 60, 0.95); 
     color: white; 
     text-align: center;
@@ -144,9 +266,8 @@ const teamMembers = [
 
   .cta-button {
     display: inline-block; 
-    /* Changed from Yellow to your brand's Cyan */
     background-color: var(--cyan); 
-    color: white; /* Clean white text */
+    color: white; 
     font-weight: 800; 
     text-transform: uppercase; 
     letter-spacing: 1px;
@@ -158,7 +279,7 @@ const teamMembers = [
 
   .cta-button:hover { 
     background-color: white; 
-    color: var(--cyan); /* Text turns blue when the button turns white */
+    color: var(--cyan); 
     transform: scale(1.05); 
   }
 </style>

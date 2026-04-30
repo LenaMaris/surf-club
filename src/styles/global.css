@@ -482,3 +482,22 @@ h1, h2, h3 {
   color: var(--navy);
   transform: translateY(-2px);
 }
+
+/* Forces all paragraph text across the entire site to be justified */
+p {
+  text-align: justify !important;
+}
+
+/* If you also want descriptions inside cards to definitely be justified */
+.member-desc, 
+.class-card-content p, 
+.support-content p, 
+.success-content p {
+  text-align: justify !important;
+}
+
+/* Keeps the tiny footer text perfectly centered */
+.global-tiny-footer p,
+.tiny-footer-content p {
+  text-align: center !important;
+}

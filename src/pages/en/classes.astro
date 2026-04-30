@@ -49,45 +49,45 @@ const rows = Array.from({ length: maxClasses }, (_, i) => i);
 const classDetails = [
   {
     title: t.community_hours, 
-    image: '/images/surf-class.jpg', 
-    professors: '...',
-    description: '...'
+    image: '/images/community_hours.jpg', 
+    professors: 'Filhos de Mãe Luiza Team',
+    description: 'Our doors are always open to the neighborhood. In the mornings, we welcome Mãe Luiza families, visitors, and partners for a time of listening, support, and overall community integration.'
   },
   {
     title: t.tutoring,
-    image: '/images/bodyboard-class.jpg',
-    professors: '...',
-    description: '...'
+    image: '/images/tutoring.jpg',
+    professors: 'Prof. ? (Math) and Prof. ? (Portuguese)',
+    description: 'We know that sports alone are not enough; education is the foundation. Our volunteer teachers provide afternoon tutoring to make sure no one falls behind in school, helping to combat illiteracy and encourage a love for studying.'
   },
   {
     title: t.jiu_jitsu,
-    image: '/images/english-class.jpg',
-    professors: '...',
-    description: '...'
+    image: '/images/jiu-jitsu.jpg',
+    professors: 'Prof. Davidson and Prof. Nelino "Mussum"',
+    description: 'The mat changes the story of our youth. We host our own classes alongside the ROX BJJ team, which trains over 80 students. We have sessions almost every day: the kids train in the late afternoon, starting around 4:30 PM, split across different rooms. Meanwhile, the adult group trains hard in the evening, from 7:00 PM to 9:00 PM, on Mondays, Wednesdays, and Thursdays.'
   },
   {
     title: t.free_surf,
-    image: '/images/martial-arts.jpg',
-    professors: '...',
-    description: '...'
+    image: '/images/free-surf.jpg',
+    professors: 'Prof. Ventura',
+    description: 'Before hitting the water, we sit down to talk. This is an essential time where we teach general knowledge and life philosophy. Here, we show them that the right path is through sports and education, keeping our youth off the streets.'
   },
   {
     title: t.surf_bodyboard,
-    image: '/images/martial-arts.jpg',
-    professors: '...',
-    description: '...'
+    image: '/images/surf-bodyboard.jpg',
+    professors: 'Prof. Nelino, Prof. Ivanildo, and Volunteers',
+    description: 'Our true classroom: the ocean at Miami Beach. During the afternoon, we teach wave maneuvers, but we also handle physical preparation on the sand, ocean reading, and hold open talks about environmental preservation and citizenship.'
   },
   {
     title: t.ballet,
-    image: '/images/martial-arts.jpg',
-    professors: '...',
-    description: '...'
+    image: '/images/ballet.jpg',
+    professors: 'Prof. ?',
+    description: 'We proudly serve 40 girls from our community. Students are divided by age and level into Baby I, Baby II, and 1st Year groups. We meet on Tuesdays and Thursdays in the early evening (from 6:00 PM to 7:30 PM). Ballet builds the self-esteem of the girlsand strengthens the incredible bonds with their mothers, who watch every step closely.'
   },
   {
     title: t.legal_advice,
-    image: '/images/martial-arts.jpg',
-    professors: '...',
-    description: '...'
+    image: '/images/legal-advice.jpg',
+    professors: 'Volunteer Lawyers',
+    description: 'Often, families in our neighborhood have nowhere to turn for help. That’s why, on Wednesday mornings, we provide a space for volunteer lawyers to offer free legal guidance and help secure the rights of our community.'
   }
 ];
 ---
@@ -151,7 +151,7 @@ const classDetails = [
           
           <div class="class-card-content">
             <h3>{info.title}</h3>
-            <span class="professors">Professors: {info.professors}</span>
+            <span class="professors">{info.professors}</span>
             <p>{info.description}</p>
           </div>
         </div>

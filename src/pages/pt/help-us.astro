@@ -42,15 +42,19 @@ const base = `/${lang}`;
         <p>{t.donor_desc}</p>
         
         <div class="donation-buttons">
-          <a href="#" class="btn-pix">
+          
+          <!-- PIX BUTTON -->
+          <a href="#" id="pix-button" data-pix-message={t.pix_copied_msg} class="btn-pix">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 8px;"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
-            {t.btn_pix}
+            PIX: 28.831.283/0001-32
           </a>
           
-          <a href="#" class="btn-paypal">
+          <!-- PAYPAL BUTTON -->
+          <a href="#" id="paypal-button" data-message={t.coming_soon_msg} class="btn-paypal">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 8px;"><path d="M7 11V7a5 5 0 0 1 10 0v4"></path><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect></svg>
             {t.btn_paypal}
           </a>
+
         </div>
       </div>
     </div>
@@ -222,3 +226,34 @@ const base = `/${lang}`;
     }
   }
 </style>
+
+<script>
+  // 1. Handle the PIX Button Click
+  const pixBtn = document.getElementById('pix-button');
+  if (pixBtn) {
+    pixBtn.addEventListener('click', (event) => {
+      event.preventDefault(); // Stops the page from jumping
+      
+      // Grab the translated message
+      const pixMsg = pixBtn.getAttribute('data-pix-message');
+      
+      // Copy to clipboard
+      navigator.clipboard.writeText('28.831.283/0001-32').then(() => {
+        // Show the alert in the correct language!
+        alert(pixMsg);
+      });
+    });
+  }
+
+  // 2. Handle the PayPal Button Click
+  const paypalBtn = document.getElementById('paypal-button');
+  if (paypalBtn) {
+    paypalBtn.addEventListener('click', (event) => {
+      event.preventDefault(); // Stops the page from jumping
+      
+      // Grab the translated message
+      const message = paypalBtn.getAttribute('data-message');
+      alert(message);
+    });
+  }
+</script>
