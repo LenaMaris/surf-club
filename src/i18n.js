@@ -71,13 +71,26 @@ export const translations = {
       desc_wagner: "Wagner is the volunteer responsible for updating our social media, registering athletes for championships, and photographing events and classes.",
       role_nelino: "Volunteer Surf and Jiu-Jitsu Professor",
       desc_nelino: "Nelino, better known as 'Mussum,' is one of the volunteers who has been with the project since its foundation. Regarding the volunteer work, Mussum highlights: 'It is a difficult job that we need to do day after day, but it pays off a lot.'",
-      role_ivanildo: "Volunteer Professor and Visual Artist",
+      role_ivanildo: "Volunteer Surf Professor and Visual Artist",
       desc_ivanildo: "Ivanildo is a volunteer surf professor and also develops artistic projects at the school involving screen printing and graffiti.",
-      role_alexandre: "Volunteer Professor",
+      role_alexandre: "Volunteer Surf Professor",
       desc_alexandre: "Alexandre, known as 'Velho,' is one of the volunteers who has been with the project since its foundation. For Velho, 'talents come mainly from the periphery. They show up with the goal of not repeating the difficult history of their parents.'",
+
       cta_volunteer_title: "Want to make a difference?",
       cta_volunteer_desc: "We are always looking for passionate people to help us teach, organize, and grow.",
       cta_volunteer_btn: "Become part of the team",
+
+      /* New Team Members */
+      role_anaclecia: "Volunteer Ballet Professor",
+      desc_anaclecia: "Anaclecia is a dedicated volunteer teaching ballet to the girls in our community, helping to build their self-esteem, discipline, and incredible bonds with their families.",
+      role_david: "Volunteer Jiu-Jitsu Professor",
+      desc_david: "David brings discipline and martial arts values to the youth, leading our Jiu-Jitsu classes and transforming the stories of our youth on the mat.",
+      role_rafaele: "Project Coordinator",
+      desc_rafaele: "Sabrina plays a crucial role in the coordination of the NGO, ensuring that all our educational, community, and sports activities run smoothly day after day.",
+      role_ana_karolina: "Volunteer Ballet Professor",
+      desc_ana_karolina: "Ana Karolina shares her passion for dance with our children, providing ballet classes that inspire creativity, movement, and joy in the early evenings.",
+      role_sidcley: "Volunteer Tutoring Professor (Portuguese)",
+      desc_sidcley: "Professor Seabra provides essential afternoon tutoring in Portuguese, ensuring our youth build a strong educational foundation alongside their sports training so no one falls behind.",
 
 
       /* Stories Page */
@@ -209,10 +222,22 @@ export const translations = {
       desc_wagner: "Wagner é o voluntário responsável por atualizar as mídias sociais fazer inscrições nos campeonatos e fotografar eventos e aulas.",
       role_nelino: "Professor voluntário de surf e jiu jitsu",
       desc_nelino: "Nelino, conhecido mais como 'Mussum' é um dos voluntários que acompanha o projeto desde sua fundação. Sobre o trabalho voluntário no projeto Mussum destaca: 'é um trabalho difícil que precisamos fazer dia após dia, mas que compensa muito'.",
-      role_ivanildo: "Professor voluntário e artista plástico",
+      role_ivanildo: "Professor Voluntário de Surf e Artista Plástico",
       desc_ivanildo: "Ivanildo é professor voluntário de surf e também desenvolve projetos artísticos na escola com serigrafia e grafite.",
-      role_alexandre: "Professor voluntário",
-      desc_alexandre: "Alexandre, conhecido como 'Velho' é um dos voluntários que acompanha o projeto desde sua fundação. Para Velho 'os talentos saem principalmente da periferia. Eles aparecem com o objetivo de não repetir a história difícil dos pais'.",
+      role_alexandre: "Professor Voluntário de Surf",
+      desc_alexandre: "Alexandre, conhecido como 'Velho', é um dos voluntários que acompanha o projeto desde sua fundação. Para Velho 'os talentos saem principalmente da periferia. Eles aparecem com o objetivo de não repetir a história difícil dos pais'.",
+
+      /* New Team Members */
+      role_anaclecia: "Professora Voluntária de Ballet",
+      desc_anaclecia: "Anaclecia é uma voluntária dedicada que ensina ballet para as meninas da nossa comunidade, ajudando a construir sua autoestima, disciplina e laços incríveis com suas famílias.",
+      role_david: "Professor Voluntário de Jiu-Jitsu",
+      desc_david: "David traz disciplina e os valores das artes marciais para os jovens, liderando nossas aulas de Jiu-Jitsu e transformando as histórias da nossa juventude no tatame.",
+      role_rafaele: "Coordenadora do Projeto",
+      desc_rafaele: "Sabrina desempenha um papel crucial na coordenação da ONG, garantindo que todas as nossas atividades educacionais, comunitárias e esportivas funcionem perfeitamente dia após dia.",
+      role_ana_karolina: "Professora Voluntária de Ballet",
+      desc_ana_karolina: "Ana Karolina compartilha sua paixão pela dança com nossas crianças, oferecendo aulas de ballet que inspiram criatividade, movimento e alegria no início da noite.",
+      role_sidcley: "Professor Voluntário de Reforço Escolar (Português)",
+      desc_sidcley: "O Professor Seabra oferece reforço escolar essencial de Português no período da tarde, garantindo que nossos jovens construam uma base educacional forte junto com o treinamento esportivo, para que ninguém fique para trás.",
       
       cta_volunteer_title: "Quer fazer a diferença?",
       cta_volunteer_desc: "Estamos sempre em busca de pessoas apaixonadas para nos ajudar a ensinar, organizar e crescer.",
