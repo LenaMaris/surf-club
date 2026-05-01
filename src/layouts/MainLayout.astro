@@ -20,6 +20,22 @@ function getPath(newLang: string) {
 // 🎯 This ensures the big footer shows up even if the URL is /pt or /pt/ 
 const normalizedPath = currentPath.endsWith('/') ? currentPath : `${currentPath}/`;
 const isHome = normalizedPath === '/pt/' || normalizedPath === '/en/' || normalizedPath === '/';
+
+const navItems = [
+  { href: `${base}/`, label: t.home, active: normalizedPath === `${base}/` },
+  { href: `${base}/team`, label: t.team, active: currentPath.includes('/team') },
+  { href: `${base}/classes`, label: t.classes, active: currentPath.includes('/classes') },
+  { href: `${base}/stories`, label: t.stories, active: currentPath.includes('/stories') },
+  { href: `${base}/help-us`, label: t.help_us, active: currentPath.includes('/help-us') },
+  { href: `${base}/gallery`, label: t.gallery, active: currentPath.includes('/gallery') },
+];
+
+const utilityItems = [
+  { href: `${base}/#contact-section`, label: t.contact },
+  { href: `${base}/help-us`, label: t.donate },
+  { href: getPath('en'), label: 'EN 🇺🇸' },
+  { href: getPath('pt'), label: 'PT 🇧🇷' },
+];
 ---
 
 <html lang={lang}>
@@ -50,16 +66,35 @@ const isHome = normalizedPath === '/pt/' || normalizedPath === '/en/' || normali
           <span class="separator"></span>
           <a href={getPath("pt")}>PT 🇧🇷</a>
         </div>
+
+        <details class="mobile-menu">
+          <summary aria-label="Toggle menu">
+            <span></span>
+            <span></span>
+            <span></span>
+          </summary>
+
+          <div class="mobile-menu-panel">
+            <div class="mobile-menu-links">
+              {navItems.map((item) => (
+                <a href={item.href} class={item.active ? 'active-page' : ''}>{item.label}</a>
+              ))}
+            </div>
+
+            <div class="mobile-menu-utilities">
+              {utilityItems.map((item) => (
+                <a href={item.href}>{item.label}</a>
+              ))}
+            </div>
+          </div>
+        </details>
       </div>
     </header>
 
     <nav class="main-nav">
-      <a href={`${base}/`} class={normalizedPath === `${base}/` ? 'active-page' : ''}>{t.home}</a>
-      <a href={`${base}/team`} class={currentPath.includes('/team') ? 'active-page' : ''}>{t.team}</a>
-      <a href={`${base}/classes`} class={currentPath.includes('/classes') ? 'active-page' : ''}>{t.classes}</a>
-      <a href={`${base}/stories`} class={currentPath.includes('/stories') ? 'active-page' : ''}>{t.stories}</a>
-      <a href={`${base}/help-us`} class={currentPath.includes('/help-us') ? 'active-page' : ''}>{t.help_us}</a>
-      <a href={`${base}/gallery`} class={currentPath.includes('/gallery') ? 'active-page' : ''}>{t.gallery}</a>
+      {navItems.map((item) => (
+        <a href={item.href} class={item.active ? 'active-page' : ''}>{item.label}</a>
+      ))}
     </nav>
 
     <main>

@@ -28,6 +28,10 @@ body {
   padding: 0 40px; 
 }
 
+.mobile-menu {
+  display: none;
+}
+
 /* 3. Typography */
 h1, h2, h3 {
   color: var(--navy);
@@ -95,6 +99,7 @@ h1, h2, h3 {
 .header-right {
   display: flex;
   justify-content: flex-end;
+  align-items: center;
 }
 
 .mini-logo-img {
@@ -110,15 +115,6 @@ h1, h2, h3 {
   font-size: 0.7rem;            
   letter-spacing: 1.5px;        
   white-space: nowrap;          
-}
-
-@media (max-width: 800px) {
-  .header-left {
-    display: none;
-  }
-  .top-header {
-    grid-template-columns: 1fr 1fr; 
-  }
 }
 
 /* --- UNIFIED ACTION BAR --- */
@@ -147,6 +143,92 @@ h1, h2, h3 {
   width: 1px;
   height: 14px; 
   background-color: #ffcc00; 
+}
+
+.mobile-menu summary {
+  list-style: none;
+}
+
+.mobile-menu summary::-webkit-details-marker {
+  display: none;
+}
+
+.mobile-menu summary {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 48px;
+  height: 48px;
+  border: 1px solid rgba(0, 43, 92, 0.12);
+  border-radius: 999px;
+  background: #fff;
+  cursor: pointer;
+  padding: 0 13px;
+}
+
+.mobile-menu summary span {
+  width: 100%;
+  height: 2px;
+  background: var(--navy);
+  border-radius: 999px;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.mobile-menu[open] summary span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.mobile-menu[open] summary span:nth-child(2) {
+  opacity: 0;
+}
+
+.mobile-menu[open] summary span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+.mobile-menu-panel {
+  position: absolute;
+  top: calc(100% + 12px);
+  right: 0;
+  width: min(320px, calc(100vw - 32px));
+  background: #fff;
+  border: 1px solid rgba(0, 43, 92, 0.08);
+  border-radius: 18px;
+  box-shadow: 0 18px 40px rgba(0, 43, 92, 0.14);
+  padding: 18px;
+  z-index: 20;
+}
+
+.mobile-menu-links,
+.mobile-menu-utilities {
+  display: flex;
+  flex-direction: column;
+}
+
+.mobile-menu-links {
+  gap: 8px;
+}
+
+.mobile-menu-utilities {
+  gap: 10px;
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(0, 43, 92, 0.08);
+}
+
+.mobile-menu-panel a {
+  text-decoration: none;
+  color: var(--navy);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 0.85rem;
+  padding: 10px 0;
+}
+
+.mobile-menu-panel a.active-page {
+  color: var(--cyan);
 }
 
 /* --- FOOTER FINAL ADJUSTMENTS --- */
@@ -234,18 +316,63 @@ h1, h2, h3 {
 .social-icons-row a { color: white; transition: color 0.3s; }
 .social-icons-row a:hover { color: var(--cyan); }
 
+@media (max-width: 800px) {
+  body {
+    padding: 0 20px;
+  }
+
+  .header-left {
+    display: none;
+  }
+
+  .top-header {
+    grid-template-columns: auto 1fr auto;
+    gap: 12px;
+    position: relative;
+  }
+
+  .header-center {
+    justify-content: flex-start;
+  }
+
+  .header-right {
+    position: relative;
+  }
+
+  .action-bar,
+  .main-nav {
+    display: none;
+  }
+
+  .mobile-menu {
+    display: block;
+  }
+
+  .mini-logo-img {
+    height: 42px;
+    min-width: 0;
+    max-width: 150px;
+  }
+}
+
 @media (max-width: 950px) {
   .footer-grid {
     grid-template-columns: 1fr; 
     gap: 50px;
   }
+
   .left-column, .middle-column, .right-column {
     text-align: center;
     align-items: center;
   }
+
   .map-card {
     margin-left: auto;
     margin-right: auto; 
+  }
+
+  .home-footer {
+    padding: 40px 32px;
   }
 }
 
@@ -306,8 +433,41 @@ h1, h2, h3 {
 }
 
 @media (max-width: 600px) {
+  body {
+    padding: 0 16px;
+  }
+
+  .hero-logo-container {
+    align-items: flex-start;
+    text-align: left;
+  }
+
   .intro-body-single p {
     text-align: left; 
+  }
+
+  .home-footer {
+    padding: 32px 20px;
+    border-radius: 12px;
+  }
+
+  .footer-header {
+    margin-bottom: 40px;
+  }
+
+  .footer-header h3 {
+    font-size: 1.5rem;
+    letter-spacing: 3px;
+  }
+
+  .hero-title {
+    font-size: 2.5rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1.05rem;
+    max-width: 18rem;
+    text-align: left !important;
   }
 }
 
@@ -414,6 +574,7 @@ h1, h2, h3 {
   font-weight: 600;
   letter-spacing: 1px;
   margin-bottom: 0px; /* Gives more space before the surfer illustration */
+  text-align: center !important;
 }
 
 /* --- BOLD SUMMARY STYLE --- */
