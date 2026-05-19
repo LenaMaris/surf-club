@@ -75,6 +75,8 @@ export const translations = {
       desc_ivanildo: "Ivanildo is a volunteer surf professor and also develops artistic projects at the school involving screen printing and graffiti.",
       role_alexandre: "Volunteer Surf Professor",
       desc_alexandre: "Alexandre, known as 'Velho,' is one of the volunteers who has been with the project since its foundation. For Velho, 'talents come mainly from the periphery. They show up with the goal of not repeating the difficult history of their parents.'",
+      role_joao: "Volunteer Bodyboarding Instructor",
+      desc_joao:"In charge of our bodyboarding classes, João Vitor teaches the youth of the community how to ride the waves, promoting health, fun, and discipline.",
 
       cta_volunteer_title: "Want to make a difference?",
       cta_volunteer_desc: "We are always looking for passionate people to help us teach, organize, and grow.",
@@ -226,6 +228,8 @@ export const translations = {
       desc_ivanildo: "Ivanildo é professor voluntário de surf e também desenvolve projetos artísticos na escola com serigrafia e grafite.",
       role_alexandre: "Professor Voluntário de Surf",
       desc_alexandre: "Alexandre, conhecido como 'Velho', é um dos voluntários que acompanha o projeto desde sua fundação. Para Velho 'os talentos saem principalmente da periferia. Eles aparecem com o objetivo de não repetir a história difícil dos pais'.",
+      role_joao: "Professor Voluntário de Bodyboard",
+      desc_joao:"Responsável pelas nossas aulas de bodyboard, João Vitor ensina os jovens da comunidade a surfar, promovendo saúde, diversão e disciplina.",
 
       /* New Team Members */
       role_anaclecia: "Professora Voluntária de Ballet",
