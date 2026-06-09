@@ -27,7 +27,7 @@ export const translations = {
       about_title: "Who We Are",
       about_p1: "The Filhos de Mãe Luiza Project is our home and safe haven here in Natal, going strong for over 24 years. It all started with 180 young people who were feeling lost and left behind, and today we've seen over 8,000 lives transformed. Surfing at Miami Beach is our root, but the project has grown far beyond the ocean. We're a true symbol of overcoming the odds: our kids have brought over 700 trophies and 500 medals back to the neighborhood. But it’s not just about sports; we believe education goes hand in hand. That's why our home offers school tutoring, ballet, jiu-jitsu, and even legal advice for families in our community.",
       hero_title: "Filhos de Mãe Luiza",
-      hero_subtitle: "Non-governmental organization (NGO)",
+      hero_subtitle: "Non-Governmental Organization (NGO)",
       about_summary: "Project focused on social inclusion of children and adolescents in the Mãe Luiza neighborhood, East Zone of Natal, RN.",
 
       /* Classes */
@@ -42,7 +42,7 @@ export const translations = {
       jiu_jitsu: "Jiu-Jitsu",
       jiu_jitsu_adults: "Jiu-Jitsu (Adults)",
       free_surf: "Free Surf",
-      surf_bodyboard: "Surf & Bodyboard class",
+      surf_bodyboard: "Surf & Bodyboard Class",
       ballet: "Ballet",
       tutoring_math: "Tutoring (Math)",
       tutoring_portuguese: "Tutoring (Portuguese)",
@@ -58,7 +58,7 @@ export const translations = {
       history_p2: "What started with a few borrowed surfboards turned into a safe haven for the community. Over these two decades, we realized that sports alone weren't enough; hunger and a lack of opportunities were real barriers. Because of this, the project embraced school tutoring, ballet, martial arts, and a daily fight against food insecurity. It is a tough battle, built on donations, sweat, and volunteer work, where we fight every day to demystify the negative image of the periphery and bring dignity to our youth.",
       history_p3: "Today, we look back and see that every effort was worth it: we have welcomed over 8,000 children, adolescents, and adults. Our shelves hold more than 700 trophies and 500 medals won all over Brazil. But our true victory isn't the sports podium. Our greatest pride is seeing young people from our community graduating from college, becoming business owners, teachers, and upstanding citizens who have conquered a bright future.",
 
-      team_grid_title: "Meet the Team",
+      team_grid_title: "Meet The Team",
       
       /* Team Members */
       role_francisco: "Founder and General Coordinator of the NGO",
@@ -75,7 +75,7 @@ export const translations = {
       desc_ivanildo: "Ivanildo is a volunteer surf professor and also develops artistic projects at the school involving screen printing and graffiti.",
       role_alexandre: "Volunteer Surf Professor",
       desc_alexandre: "Alexandre, known as 'Velho,' is one of the volunteers who has been with the project since its foundation. For Velho, 'talents come mainly from the periphery. They show up with the goal of not repeating the difficult history of their parents.'",
-      role_joao: "Volunteer Bodyboarding Instructor",
+      role_joao: "Volunteer Bodyboarding Professor",
       desc_joao:"In charge of our bodyboarding classes, João Vitor teaches the youth of the community how to ride the waves, promoting health, fun, and discipline.",
 
       cta_volunteer_title: "Want to make a difference?",
@@ -174,7 +174,7 @@ export const translations = {
       about_title: "Quem Somos",
       about_p1: "O Projeto Filhos de Mãe Luiza é a nossa casa e o nosso porto seguro aqui em Natal, na ativa há mais de 24 anos. Tudo começou com 180 jovens que estavam meio perdidos, sem perspectiva, e hoje já vimos mais de 8.000 vidas serem transformadas. O surf na Praia de Miami é a nossa raiz, mas o projeto cresceu muito além do mar. Somos um verdadeiro símbolo de superação: nossa garotada já trouxe mais de 700 troféus e 500 medalhas para o bairro. E não é só esporte; a gente acredita que a educação anda junto. Por isso, a nossa casa oferece reforço escolar, ballet, jiu-jitsu e até atendimento jurídico para as famílias da nossa comunidade.",
       hero_title: "Filhos de Mãe Luiza",
-      hero_subtitle: "Organização não governamental (ONG)",
+      hero_subtitle: "Organização Não Governamental (ONG)",
       about_summary: "Projeto voltado a inclusão social de crianças e adolescentes no Bairro Mãe Luiza, Zona Leste de Natal, RN.",
 
       /* Classes */
@@ -214,15 +214,15 @@ export const translations = {
       team_grid_title: "Conheça a Equipe",
 
       //* Team Members */
-      role_francisco: "Fundador e coordenador geral da ONG",
+      role_francisco: "Fundador e Coordenador Geral da ONG",
       desc_francisco: "Há mais de 17 anos, Francisco Ventura luta para desmistificar a imagem negativa que criaram do lugar onde mora. É dele a iniciativa do projeto Filhos de Mãe Luíza que oferece uma série de atividades educacionais e desportivas que têm tirado crianças da marginalidade e colocado no topo de muitos pódios país afora. Para Ventura 'a luta para manter o projeto funcionando é diária, porém o esforço é essencial para obter bons resultados.' Perguntado sobre a importância do projeto Ventura diz: 'Eu tenho muito orgulho. Eu sou digno em ser Filho da Mãe, filho de Mãe Luiza, em lutar para minha comunidade ter o melhor e buscar o melhor para ela. Não buscar só o derrame de sangue, não buscar só droga, não buscar só prisão. Mãe Luiza tem muita coisa boa. Nosso trabalho é tirar essa imagem negativa da periferia, o preconceito, a rejeição. Essa é uma casa que tem este objetivo também, porque aqui nos olhamos na mesma altura', realça Ventura.",
-      role_edileide: "Cozinheira voluntária (Em Memória)",
+      role_edileide: "Cozinheira Voluntária (Em Memória)",
       desc_edileide: "Edileide Teixeira, conhecida por nós como baixinha, foi uma voluntária fundadora que acompanhou ao longo de 17 anos o projeto. No ano 2020 perdemos a Baixinha para a Covid-19. Edileide, a baixinha, será eternamente lembrada pelos que ficaram, e principalmente por nós, por todo o amor que dedicava ao nosso projeto e que agora se manterá presente através da nossa saudade, das boas lembranças e nosso eterno carinho.",
       role_haroldo: "Diretor",
       desc_haroldo: "“A cada ano esta ação vem crescendo graças a pessoas de bom coração que nos ajuda para realização desta festa. Imagina a criança receber um uma prancha de surf para praticar o seu esporte preferido e que pode mudar radicalmente a sua vida através do esporte. É um sonho que estamos ajudando a concretizar”, disse Haroldo Chaves.",
-      role_wagner: "Assistente de mídia, voluntário e fotógrafo",
+      role_wagner: "Assistente de Mídia, Voluntário e Fotógrafo",
       desc_wagner: "Wagner é o voluntário responsável por atualizar as mídias sociais fazer inscrições nos campeonatos e fotografar eventos e aulas.",
-      role_nelino: "Professor voluntário de surf e jiu jitsu",
+      role_nelino: "Professor Voluntário de Surf e Jiu-Jitsu",
       desc_nelino: "Nelino, conhecido mais como 'Mussum' é um dos voluntários que acompanha o projeto desde sua fundação. Sobre o trabalho voluntário no projeto Mussum destaca: 'é um trabalho difícil que precisamos fazer dia após dia, mas que compensa muito'.",
       role_ivanildo: "Professor Voluntário de Surf e Artista Plástico",
       desc_ivanildo: "Ivanildo é professor voluntário de surf e também desenvolve projetos artísticos na escola com serigrafia e grafite.",
